@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CortexFi | Intelligence Meets Decentralized Finance</title>
+    <meta name="description" content="CortexFi ($CTX) launched on Virtuals.io and Robinhood Chain. Contract Address: 0x17E2a291D651400bf32A5241f83E60ea5A12B8a7">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A2463',
+                        secondary: '#3E92CC',
+                        accent: '#2EC4B6',
+                        dark: '#051336',
+                        light: '#F8FBFF'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-gradient {
+                background: linear-gradient(90deg, #3E92CC 0%, #2EC4B6 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .bg-grid {
+                background-image: radial-gradient(#3E92CC22 1px, transparent 1px);
+                background-size: 25px 25px;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            section[id] {
+                scroll-margin-top: 100px;
+            }
+            .logo-cortex {
+                filter: drop-shadow(0 2px 8px rgba(62, 146, 204, 0.3));
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-light text-gray-800">
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <a href="https://app.virtuals.io/virtuals/97349" class="flex items-center gap-3">
+                <div class="w-10 h-10 logo-cortex">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 10 A40 40 0 0 1 90 50 A40 40 0 0 1 50 90" fill="none" stroke="#3E92CC" stroke-width="8"/>
+                        <path d="M50 10 A40 40 0 0 0 10 50 A40 40 0 0 0 50 90" fill="none" stroke="#FFFFFF" stroke-width="8"/>
+                        <g stroke-width="2" stroke-linecap="round">
+                            <path d="M30 25 L40 35 L50 35" stroke="#3E92CC"/>
+                            <circle cx="40" cy="35" r="2" fill="#3E92CC"/>
+                            <path d="M25 40 L35 40 L35 50" stroke="#3E92CC"/>
+                            <circle cx="35" cy="50" r="2" fill="#3E92CC"/>
+                            <path d="M30 65 L40 65 L45 75" stroke="#3E92CC"/>
+                            <circle cx="40" cy="65" r="2" fill="#3E92CC"/>
+                            <path d="M60 25 L60 35 L70 35" stroke="#FFFFFF"/>
+                            <circle cx="70" cy="35" r="2" fill="#FFFFFF"/>
+                            <path d="M75 65 L65 65 L60 75" stroke="#FFFFFF"/>
+                            <circle cx="65" cy="65" r="2" fill="#FFFFFF"/>
+                        </g>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-xl font-bold text-primary">CortexFi</span>
+                    <span class="text-xs text-gray-500 block">crtxfi.com</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex gap-8 font-medium">
+                <a href="#about" class="hover:text-secondary transition-colors">About</a>
+                <a href="#technology" class="hover:text-secondary transition-colors">Technology</a>
+                <a href="#tokenomics" class="hover:text-secondary transition-colors">Token Info</a>
+                <a href="#roadmap" class="hover:text-secondary transition-colors">Roadmap</a>
+                <a href="#community" class="hover:text-secondary transition-colors">Community</a>
+            </nav>
+
+            <a href="#get-started" class="hidden md:block bg-secondary hover:bg-primary text-white px-5 py-2 rounded-lg transition-all">
+                Get Started
+            </a>
+
+            <button class="md:hidden text-2xl" id="menuToggle">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-4 font-medium">
+                <a href="#about" class="hover:text-secondary">About</a>
+                <a href="#technology" class="hover:text-secondary">Technology</a>
+                <a href="#tokenomics" class="hover:text-secondary">Token Info</a>
+                <a href="#roadmap" class="hover:text-secondary">Roadmap</a>
+                <a href="#community" class="hover:text-secondary">Community</a>
+                <a href="#get-started" class="bg-secondary text-white px-4 py-2 rounded-lg text-center">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-36 pb-20 bg-gradient-to-br from-primary/5 to-secondary/10 bg-grid">
+        <div class="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 space-y-6">
+                <h1 class="text-[clamp(2.5rem,5vw,3.5rem)] font-bold leading-tight">
+                    <span class="text-gradient">Intelligence</span> Meets <br> Decentralized Finance
+                </h1>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    CortexFi ($CTX) is officially launched on <strong>Virtuals.io</strong> and <strong>Robinhood Chain</strong>. Built for transparency, security, and long-term growth.
+                </p>
+
+                <!-- ✅ Updated Contract Address -->
+                <div class="bg-white p-4 rounded-lg border border-secondary/30 shadow-sm">
+                    <p class="text-sm text-gray-600 mb-1">Contract Address:</p>
+                    <p class="font-mono text-sm break-all text-primary font-semibold">0x17E2a291D651400bf32A5241f83E60ea5A12B8a7</p>
+                </div>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#tokenomics" class="bg-secondary hover:bg-primary text-white px-8 py-3 rounded-lg text-lg font-medium transition-all shadow-lg shadow-secondary/20">
+                        View Token Details
+                    </a>
+                    <a href="https://app.virtuals.io/virtuals/97349" target="_blank" class="border border-gray-300 hover:border-secondary px-8 py-3 rounded-lg text-lg font-medium transition-all">
+                        View on Virtuals.io
+                    </a>
+                </div>
+                <div class="flex items-center gap-6 pt-4">
+                    <p class="text-sm text-gray-500">Official: <a href="https://x.com/CortexFi" target="_blank" class="text-secondary font-medium">@CortexFi</a> | crtxfi.com</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="w-72 h-72 md:w-96 md:h-96 logo-cortex">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <path d="M50 10 A40 40 0 0 1 90 50 A40 40 0 0 1 50 90" fill="none" stroke="#3E92CC" stroke-width="8"/>
+                        <path d="M50 10 A40 40 0 0 0 10 50 A40 40 0 0 0 50 90" fill="none" stroke="#FFFFFF" stroke-width="8"/>
+                        <g stroke-width="2" stroke-linecap="round">
+                            <path d="M30 25 L40 35 L50 35" stroke="#3E92CC"/>
+                            <circle cx="40" cy="35" r="2" fill="#3E92CC"/>
+                            <path d="M25 40 L35 40 L35 50" stroke="#3E92CC"/>
+                            <circle cx="35" cy="50" r="2" fill="#3E92CC"/>
+                            <path d="M30 65 L40 65 L45 75" stroke="#3E92CC"/>
+                            <circle cx="40" cy="65" r="2" fill="#3E92CC"/>
+                            <path d="M60 25 L60 35 L70 35" stroke="#FFFFFF"/>
+                            <circle cx="70" cy="35" r="2" fill="#FFFFFF"/>
+                            <path d="M75 65 L65 65 L60 75" stroke="#FFFFFF"/>
+                            <circle cx="65" cy="65" r="2" fill="#FFFFFF"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">What is CortexFi?</h2>
+                <p class="text-gray-600 text-lg">
+                    Bridging Traditional & Decentralized Finance. Secure access, fast transactions, full control of your assets.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-5">
+                    <h3 class="text-2xl font-semibold text-dark">Our Mission</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        CortexFi is a transparent DeFi project built on Virtuals.io and Robinhood Chain. It follows a fair and structured model with clear tokenomics and no hidden allocations.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Designed for sustainability and trust, using Automated Capital Formation and a team vesting schedule for long-term commitment.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-center gap-2">
+                            <i class="fa fa-check-circle text-accent text-xl"></i>
+                            <span>Launched on Virtuals.io</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa fa-check-circle text-accent text-xl"></i>
+                            <span>Built on Robinhood Chain</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa fa-check-circle text-accent text-xl"></i>
+                            <span>Fair & Transparent Launch</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa fa-check-circle text-accent text-xl"></i>
+                            <span>Fixed Total Supply</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/10 p-8 rounded-2xl border border-secondary/20">
+                    <h4 class="text-xl font-semibold mb-4 text-primary">Core Values</h4>
+                    <ul class="space-y-4">
+                        <li class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">1</div>
+                            <div>
+                                <h5 class="font-medium">Transparency First</h5>
+                                <p class="text-sm text-gray-600">All details, contract, and supply are fully public and verifiable.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">2</div>
+                            <div>
+                                <h5 class="font-medium">Structured Growth</h5>
+                                <p class="text-sm text-gray-600">Uses ACF model to ensure smooth capital formation and market stability.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">3</div>
+                            <div>
+                                <h5 class="font-medium">Sustainable Development</h5>
+                                <p class="text-sm text-gray-600">Team tokens are vested, ensuring long-term alignment with holders.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Technology & Launch</h2>
+                <p class="text-gray-600 text-lg">
+                    Fast, secure, and fully verifiable infrastructure.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary text-2xl mb-6">
+                        <i class="fa fa-link"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Robinhood Chain</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        High-performance blockchain with low fees, fast finality, and strong security, optimized for DeFi and Web3 applications.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary text-2xl mb-6">
+                        <i class="fa fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Launched on Virtuals.io</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Fair launch platform using Automated Capital Formation, ensuring transparent and orderly market growth.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary text-2xl mb-6">
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Verified Contract</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        View and verify token details and progress:
+                        <br><a href="https://app.virtuals.io/virtuals/97349" target="_blank" class="text-secondary font-medium hover:underline">View on Virtuals.io</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started Section -->
+    <section id="get-started" class="py-20 bg-gradient-to-br from-primary/5 to-secondary/10">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Get Started with $CTX</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+                All official links and details in one place.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-secondary/20 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary text-2xl mx-auto mb-6">
+                        <i class="fa fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Token Info</h3>
+                    <p class="text-gray-600 mb-6">
+                        Full details about supply, allocation, and vesting.
+                    </p>
+                    <a href="#tokenomics" class="text-secondary font-medium hover:underline">View Details →</a>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border border-secondary/20 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary text-2xl mx-auto mb-6">
+                        <i class="fa fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Contract Address</h3>
+                    <p class="text-gray-600 mb-6 font-mono text-sm break-all">
+                        0x17E2a291D651400bf32A5241f83E60ea5A12B8a7
+                    </p>
+                    <a href="https://app.virtuals.io/virtuals/97349" target="_blank" class="text-secondary font-medium hover:underline">Open Virtuals.io →</a>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border border-secondary/20 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary text-2xl mx-auto mb-6">
+                        <i class="fa fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Market Data</h3>
+                    <p class="text-gray-600 mb-6">
+                        Price, market cap, and graduation progress.
+                    </p>
+                    <a href="https://app.virtuals.io/virtuals/97349" target="_blank" class="text-secondary font-medium hover:underline">Check Live Stats →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ UPDATED TOKENOMICS SECTION -->
+    <section id="tokenomics" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Token Details: $CTX</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+                Launched on Virtuals.io & Robinhood Chain — structured and transparent tokenomics.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-secondary/20">
+                    <h3 class="text-xl font-bold text-primary">Token Name</h3>
+                    <p class="text-2xl font-bold text-secondary mt-2">CortexFi</p>
+                    <p class="text-sm text-gray-500 mt-1">Symbol: $CTX</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-secondary/20">
+                    <h3 class="text-xl font-bold text-primary">Total Fixed Supply</h3>
+                    <p class="text-3xl font-bold text-secondary mt-2">1,000,000,000</p>
+                    <p class="text-sm text-gray-500 mt-1">1 Billion CTX — No additional minting</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-secondary/20">
+                    <h3 class="text-xl font-bold text-primary">Network</h3>
+                    <p class="text-2xl font-bold text-secondary mt-2">Robinhood Chain</p>
+                    <p class="text-sm text-gray-500 mt-1">Launched via Virtuals.io</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-secondary/20">
+                    <h3 class="text-xl font-bold text-primary">Liquidity Pool</h3>
+                    <p class="text-3xl font-bold text-secondary mt-2">50.00%</p>
+                    <p class="text-sm text-gray-500 mt-1">500,000,000 CTX — Fixed supply allocated to liquidity</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-secondary/20">
+                    <h3 class="text-xl font-bold text-primary">Automated Capital Formation</h3>
+                    <p class="text-3xl font-bold text-secondary mt-2">25.00%</p>
+                    <p class="text-sm text-gray-500 mt-1">250,000,000 CTX — Follows limit order program from $2M to $160M FDV</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-secondary/20">
+                    <h3 class="text-xl font-bold text-primary">Team Allocation</h3>
+                    <p class="text-3xl font-bold text-secondary mt-2">25.00%</p>
+                    <p class="text-sm text-gray-500 mt-1">250,000,000 CTX — Default team vesting schedule</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-secondary/20 lg:col-span-3">
+                    <h3 class="text-xl font-bold text-primary">Contract Address</h3>
+                    <p class="text-sm font-mono break-all text-secondary mt-2 leading-tight">0x17E2a291D651400bf32A5241f83E60ea5A12B8a7</p>
+                    <p class="text-sm text-gray-500 mt-2">
+                        <a href="https://app.virtuals.io/virtuals/97349" target="_blank" class="hover:underline">View on Virtuals.io</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Development Roadmap</h2>
+                <p class="text-gray-600 text-lg">
+                    Clear and steady path forward.
+                </p>
+            </div>
+
+            <div class="relative border-l-2 border-secondary/30 pl-8 ml-4 space-y-12">
+                <div class="relative">
+                    <div class="absolute -left-11 w-6 h-6 rounded-full bg-secondary"></div>
+                    <h3 class="text-xl font-bold text-primary">Phase 1: Foundation & Launch</h3>
+                    <span class="text-sm text-secondary font-medium">Q2 2026</span>
+                    <ul class="mt-3 space-y-2 text-gray-700">
+                        <li>✅ Official launch on Virtuals.io</li>
+                        <li>✅ Deployed on Robinhood Chain</li>
+                        <li>✅ Automated Capital Formation active</li>
+                        <li>✅ Contract verified and public</li>
+                        <li>✅ Website & official channels live</li>
+                    </ul>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-11 w-6 h-6 rounded-full bg-secondary/70"></div>
+                    <h3 class="text-xl font-bold text-primary">Phase 2: Expand Features & Rewards</h3>
+                    <span class="text-sm text-secondary font-medium">Q4 2026 – Q1 2027</span>
+                    <ul class="mt-3 space-y-2 text-gray-700">
+                        <li>🚀 Graduation and liquidity migration to Uniswap</li>
+                        <li>🚀 Integration with DeFi protocols</li>
+                        <li>🚀 Community rewards and incentives</li>
+                        <li>🚀 Listing on major trackers</li>
+                    </ul>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-11 w-6 h-6 rounded-full bg-secondary/50"></div>
+                    <h3 class="text-xl font-bold text-primary">Phase 3: Ecosystem Growth</h3>
+                    <span class="text-sm text-secondary font-medium">Q2–Q4 2027</span>
+                    <ul class="mt-3 space-y-2 text-gray-700">
+                        <li>🔮 Expand cross-chain functionality</li>
+                        <li>🔮 Strategic partnerships</li>
+                        <li>🔮 New use cases and utilities for $CTX</li>
+                        <li>🔮 Governance and DAO development</li>
+                    </ul>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-11 w-6 h-6 rounded-full bg-secondary/30"></div>
+                    <h3 class="text-xl font-bold text-primary">Phase 4: Global & Decentralized Future</h3>
+                    <span class="text-sm text-secondary font-medium">2028+</span>
+                    <ul class="mt-3 space-y-2 text-gray-700">
+                        <li>🔮 Full decentralization</li>
+                        <li>🔮 Global adoption and expansion</li>
+                        <li>🔮 Long-term ecosystem sustainability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Join Our Community</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-10">
+                Stay updated with progress, announcements, and developments.
+            </p>
+            <div class="flex justify-center gap-6 flex-wrap">
+                <a href="https://x.com/CortexFi" target="_blank" class="w-14 h-14 rounded-full bg-gray-100 hover:bg-secondary hover:text-white flex items-center justify-center text-2xl transition-all" title="X / Twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="#" target="_blank" class="w-14 h-14 rounded-full bg-gray-100 hover:bg-secondary hover:text-white flex items-center justify-center text-2xl transition-all" title="Telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+                <a href="https://app.virtuals.io/virtuals/97349" target="_blank" class="w-14 h-14 rounded-full bg-gray-100 hover:bg-secondary hover:text-white flex items-center justify-center text-2xl transition-all" title="Virtuals.io">
+                    <i class="fa fa-globe"></i>
+                </a>
+                <a href="https://github.com/cortexrepo/cortex" target="_blank" class="w-14 h-14 rounded-full bg-gray-100 hover:bg-secondary hover:text-white flex items-center justify-center text-2xl transition-all" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-300 py-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <path d="M50 10 A40 40 0 0 1 90 50 A40 40 0 0 1 50 90" fill="none" stroke="#3E92CC" stroke-width="8"/>
+                                <path d="M50 10 A40 40 0 0 0 10 50 A40 40 0 0 0 50 90" fill="none" stroke="#FFFFFF" stroke-width="8"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold text-white">CortexFi</span>
+                            <span class="text-xs text-gray-400 block">crtxfi.com</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Intelligence Meets Decentralized Finance. Powered by $CTX. Launched on Virtuals.io & Robinhood Chain.
+                    </p>
+                    <p class="text-xs mt-2">
+                        CA: <span class="font-mono break-all">0x17E2a291D651400bf32A5241f83E60ea5A12B8a7</span>
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Ecosystem</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="#tokenomics" class="hover:text-secondary transition-colors">Token Details</a></li>
+                        <li><a href="#roadmap" class="hover:text-secondary transition-colors">Roadmap</a></li>
+                        <li><a href="#community" class="hover:text-secondary transition-colors">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Resources</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://app.virtuals.io/virtuals/97349" target="_blank" class="hover:text-secondary transition-colors">Virtuals.io Page</a></li>
+                        <li><a href="https://github.com/cortexrepo/cortex" target="_blank" class="hover:text-secondary transition-colors">GitHub Repository</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Whitepaper</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Official Links</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://crtxfi.com" target="_blank" class="hover:text-secondary transition-colors">Website</a></li>
+                        <li><a href="https://x.com/CortexFi" target="_blank" class="hover:text-secondary transition-colors">X (Twitter)</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Telegram</a></li>
+                        <li><a href="https://app.virtuals.io/virtuals/97349" target="_blank" class="hover:text-secondary transition-colors">Virtuals.io</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-sm">
+                © 2026 CortexFi | $CTX | CA: 0x17E2a291D651400bf32A5241f83E60ea5A12B8a7 | Launched on Virtuals.io & Robinhood Chain
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuToggle.innerHTML = mobileMenu.classList.contains('hidden') ? '<i class="fa fa-bars"></i>' : '<i class="fa fa-times"></i>';
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md', 'bg-white/95');
+            } else {
+                navbar.classList.remove('shadow-md', 'bg-white/95');
+            }
+        });
+    </script>
+</body>
+</html>
